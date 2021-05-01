@@ -19,7 +19,7 @@ Packages to install:
 `sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 `
 
-Description about packages:
+- Description about packages:
 
 * apt-transport-https - allows the use of repositories accessed via the HTTP Secure protocol (HTTPS),
 * ca-certificates - Certificate Authentication
