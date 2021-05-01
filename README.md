@@ -1,17 +1,19 @@
 # Automating wireguard using docker compose
 
-# Refer link:
+## Refer link:
 
-### [docker-compose.yaml file](https://hub.docker.com/r/linuxserver/wireguard)
+[docker-compose.yaml file](https://hub.docker.com/r/linuxserver/wireguard)
 
-## Module refer link
-### [Read more about docker modules](https://docs.docker.com/engine/reference/run/)
+### Module refer link
+[Read more about docker modules](https://docs.docker.com/engine/reference/run/)
 
 
 ## Configuring Server side:
 [Installing pre-requisite]
 
-Allow port: 51820
+```
+NOTE: Allow port: 51820
+```
 
 sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 
