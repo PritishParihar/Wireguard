@@ -70,21 +70,21 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-
 Installation of docker and docker-compose complete!
 
 
-### xi. Installing wireguard container
+### Installing wireguard container
 
-#### xii. Just to keep things clean, let’s create a separate directory
+#### xi. Just to keep things clean, let’s create a separate directory
 `sudo mkdir /opt/wireguard-server`
 
-#### xiii. Getting ownership of wireguard folder
+#### xii. Getting ownership of wireguard folder
 `sudo chown $USER:$USER /opt/wireguard-server/`
 
-#### xiv. Let’s jump into the directory
+#### xiii. Let’s jump into the directory
 ` cd /opt/wireguard-server`
 
-#### xv. creating docker-compose yaml file
+#### xiv. creating docker-compose yaml file
 `nano docker-compose.yaml`
 
-#### xvi. copy paste below text into yaml file
+#### xv. copy paste below text into yaml file
 ```version: "2.1"
 services:
   wireguard:
@@ -112,17 +112,17 @@ services:
     restart: unless-stopped
 ```
 
-### xvii. Compose yaml file
+### xvi. Compose yaml file
 `docker-compose up -d`
 
-### xviii. Let's check the running containers
+### xvii. Let's check the running containers
 `docker-compose ps`
 
-### xix. Executing `wg` command to run wireguard inside docker container
+### xviii. Executing `wg` command to run wireguard inside docker container
 `docker exec -it wireguard wg
 cd config/peer1`
 
-### xx. Copy peer1.conf file to client machine
+### xix. Copy peer1.conf file to client machine
 `scp peer1.conf client@<IP>`
 
 
