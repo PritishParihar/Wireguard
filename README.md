@@ -85,7 +85,9 @@ Installation of docker and docker-compose complete!
 `nano docker-compose.yaml`
 
 #### xv. copy paste below text into yaml file
-```version: "2.1"
+
+```
+version: "2.1"
 services:
   wireguard:
     image: linuxserver/wireguard
