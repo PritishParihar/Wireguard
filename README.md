@@ -66,21 +66,22 @@ Description about flags:
 Installation of docker and docker-compose complete!
 
 
-## Installing wireguard container
+### Installing wireguard container
 
-### Just to keep things clean, let’s create a separate directory
+#### Just to keep things clean, let’s create a separate directory
 `sudo mkdir /opt/wireguard-server`
 
-#Getting ownership of folder
-sudo chown $USER:$USER /opt/wireguard-server/
+#### Getting ownership of wireguard folder
+`sudo chown $USER:$USER /opt/wireguard-server/`
 
-#Let’s jump into the directory
-cd /opt/wireguard-server
+#### Let’s jump into the directory
+` cd /opt/wireguard-server`
 
-# creating docker-compose yaml file
-nano docker-compose.yaml
+#### creating docker-compose yaml file
+`nano docker-compose.yaml`
+
 # copy paste below text into yaml file
-version: "2.1"
+`version: "2.1"
 services:
   wireguard:
     image: linuxserver/wireguard
@@ -104,49 +105,52 @@ services:
       - 51820:51820/udp
     sysctls:
       - net.ipv4.conf.all.src_valid_mark=1
-    restart: unless-stopped
+    restart: unless-stopped`
 
 
-# Compose yaml file
-docker-compose up -d
+### Compose yaml file
+`docker-compose up -d`
 
-#check container
-docker-compose ps
+### Let's check the running containers
+`docker-compose ps`
 
-# Executing wg command inside docker container
-docker exec -it wireguard wg
-cd config/peer1
+### Executing `wg` command to run wireguard inside docker container
+`docker exec -it wireguard wg
+cd config/peer1`
 
-#Copy peer1.conf file to client machine
-scp peer1.conf client@<IP>
-
-
-
-Client Side:
-
-# Update repo
-sudo apt update
-
-# wireguard on client side with resolvconf (for resolution of DNS queries )
-sudo apt install -y  wireguard resolvconf
-
-# Move the peer1 file to wireguard directory
-sudo mv peer1.conf /etc/wireguard/wg0.conf
-
-# Connecting to server
-sudo wg-quick up wg0
-
-# to check if connected to server
-wg
-
-<Whola! Done>
+### Copy peer1.conf file to client machine
+`scp peer1.conf client@<IP>`
 
 
-To check connectivity between server and client:
 
-#Run inside docker container [with elevated privileges ]
-apt update && apt install tcpdump
+## Configuring Client Side:
 
-tcpdump -envi wg0 host 8.8.8.8
+### Update Client side repository
+`sudo apt update`
 
-# Now ping 8.8.8.8 from client side
+### wireguard on client side with resolvconf (for resolution of DNS queries )
+`sudo apt install -y  wireguard resolvconf`
+
+### Move the peer1 file to wireguard directory
+`sudo mv peer1.conf /etc/wireguard/wg0.conf`
+
+### Connecting to server
+`sudo wg-quick up wg0`
+
+### to check if connected to server
+`wg`
+
+Whola! It's done.
+
+
+## To check connectivity between server and client:
+
+### Run inside docker container [with elevated privileges ]
+#### Installing tcpdump on wireguard Server
+` apt update && apt install tcpdump`
+
+#### running tcpdump on wg0 configuration file that capture request to google server
+`tcpdump -envi wg0 host 8.8.8.8`
+
+#### Now ping 8.8.8.8 from client side
+`ping 8.8.8.8`
