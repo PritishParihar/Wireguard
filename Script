@@ -1,10 +1,11 @@
-Refer link:
-# docker-compose.yaml file
-# https://hub.docker.com/r/linuxserver/wireguard
+#Refer link:
+### [docker-compose.yaml file](https://hub.docker.com/r/linuxserver/wireguard)
 
-# Module refer link
-# https://docs.docker.com/engine/reference/run/
-Server side:
+## Module refer link
+### [Read more about docker modules](https://docs.docker.com/engine/reference/run/)
+
+
+## Configuring Server side:
 [Installing pre-requisite]
 
 Allow port: 51820
