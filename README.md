@@ -81,7 +81,7 @@ Installation of docker and docker-compose complete!
 `nano docker-compose.yaml`
 
 # copy paste below text into yaml file
-`version: "2.1"
+```version: "2.1"
 services:
   wireguard:
     image: linuxserver/wireguard
@@ -105,8 +105,8 @@ services:
       - 51820:51820/udp
     sysctls:
       - net.ipv4.conf.all.src_valid_mark=1
-    restart: unless-stopped`
-
+    restart: unless-stopped
+```
 
 ### Compose yaml file
 `docker-compose up -d`
