@@ -19,6 +19,7 @@ Allow port = 51820
 Packages to install:
 `sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 `
+
 Description about packages:
 
 apt-transport-https - allows the use of repositories accessed via the HTTP Secure protocol (HTTPS),
@@ -33,9 +34,10 @@ software-properties-common  - Provide useful scripts for adding and removing PPA
 
 Description about flags:
 
--f = fail [silent output + no server error]	#-s = no progress bar
--S = error shown if something goes wrong
--L = change in location
+-f = fail [silent output + no server error]	\n
+\n-s = no progress bar
+\n-S = error shown if something goes wrong
+\n-L = change in location
 
 ### Adding repo
 `sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`
