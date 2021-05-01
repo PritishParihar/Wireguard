@@ -11,7 +11,7 @@
 ## Configuring Server side:
 [Installing pre-requisite]
 
-```yellow
+```ruby
 NOTE: Allow port: 51820
 ```
 
