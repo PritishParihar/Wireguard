@@ -39,13 +39,13 @@ Description about flags:
 * -L = change in location
 
 ### Adding repo
-`sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`
+```sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"```
 
 ### Update and installing docker files
 `sudo apt-get update && sudo apt-get install docker-ce docker-ce-cli containerd.io`
 
 ### Downloading docker-compose file
-`sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose`
+```sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose```
 
 ### Setting Executable permission
 `sudo chmod +x /usr/local/bin/docker-compose`
@@ -80,7 +80,7 @@ Installation of docker and docker-compose complete!
 #### creating docker-compose yaml file
 `nano docker-compose.yaml`
 
-# copy paste below text into yaml file
+#### copy paste below text into yaml file
 ```version: "2.1"
 services:
   wireguard:
