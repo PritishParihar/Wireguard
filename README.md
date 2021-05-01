@@ -7,7 +7,7 @@
 [Read more about docker modules](https://docs.docker.com/engine/reference/run/)
 
 
-## Configuring Server side:
+## 1. Configuring Server side:
 [Installing pre-requisite]
 
 ```ruby
@@ -15,7 +15,7 @@ Precaution
 Allow port = 51820
 ```
 
-Packages to install:
+### i. Packages to install:
 `sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 `
 
@@ -27,64 +27,64 @@ Packages to install:
   * gnupg-agent - Daemon to manage private keys independently from any protocol
   * software-properties-common  - Provide useful scripts for adding and removing PPAs and DBUS backends, without this we have to manually add or remove PPAs and as well as subsidiary
 
-### [Installing docker]
+### ii. Installing docker
 
 `curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`
 
-Description about flags:
+* Description about flags:
 
-* -f = fail [silent output + no server error]
-* -s = no progress bar
-* -S = error shown if something goes wrong
-* -L = change in location
+  * -f = fail [silent output + no server error]
+  * -s = no progress bar
+  * -S = error shown if something goes wrong
+  * -L = change in location
 
-### Adding repo
+### iii. Adding repo
 ```
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 ```
 
-### Update and installing docker files
+### iv. Update and installing docker files
 `sudo apt-get update && sudo apt-get install docker-ce docker-ce-cli containerd.io`
 
-### Downloading docker-compose file
+### v. Downloading docker-compose file
 ```
 sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ```
 
-### Setting Executable permission
+### vi. Setting Executable permission
 `sudo chmod +x /usr/local/bin/docker-compose`
 
 
-### remove sudo from every docker
+### vii. remove sudo from every docker
 `sudo usermod -aG docker $USER`
 
-### to reload all the membership of the group
+### viii. to reload all the membership of the group
 `newgrp docker`
 
-### to check docker is successfully installed
+### ix. to check docker is successfully installed
 `docker run hello-world`
 
-### to see docker-compose version
+### x. to see docker-compose version
 `docker-compose version`
 
 Installation of docker and docker-compose complete!
 
 
-### Installing wireguard container
+### xi. Installing wireguard container
 
-#### Just to keep things clean, let’s create a separate directory
+#### xii. Just to keep things clean, let’s create a separate directory
 `sudo mkdir /opt/wireguard-server`
 
-#### Getting ownership of wireguard folder
+#### xiii. Getting ownership of wireguard folder
 `sudo chown $USER:$USER /opt/wireguard-server/`
 
-#### Let’s jump into the directory
+#### xiv. Let’s jump into the directory
 ` cd /opt/wireguard-server`
 
-#### creating docker-compose yaml file
+#### xv. creating docker-compose yaml file
 `nano docker-compose.yaml`
 
-#### copy paste below text into yaml file
+#### xvi. copy paste below text into yaml file
 ```version: "2.1"
 services:
   wireguard:
@@ -112,42 +112,42 @@ services:
     restart: unless-stopped
 ```
 
-### Compose yaml file
+### xvii. Compose yaml file
 `docker-compose up -d`
 
-### Let's check the running containers
+### xviii. Let's check the running containers
 `docker-compose ps`
 
-### Executing `wg` command to run wireguard inside docker container
+### xix. Executing `wg` command to run wireguard inside docker container
 `docker exec -it wireguard wg
 cd config/peer1`
 
-### Copy peer1.conf file to client machine
+### xx. Copy peer1.conf file to client machine
 `scp peer1.conf client@<IP>`
 
 
 
-## Configuring Client Side:
+## 2. Configuring Client Side:
 
-### Update Client side repository
+### i. Update Client side repository
 `sudo apt update`
 
-### wireguard on client side with resolvconf (for resolution of DNS queries )
+### ii. wireguard on client side with resolvconf (for resolution of DNS queries )
 `sudo apt install -y  wireguard resolvconf`
 
-### Move the peer1 file to wireguard directory
+### iii. Move the peer1 file to wireguard directory
 `sudo mv peer1.conf /etc/wireguard/wg0.conf`
 
-### Connecting to server
+### iv. Connecting to server
 `sudo wg-quick up wg0`
 
-### to check if connected to server
+### v.to check if connected to server
 `wg`
 
 Whola! It's done.
 
 
-## To check connectivity between server and client:
+## 3. To check connectivity between server and client:
 
 ### Run inside docker container [with elevated privileges ]
 #### Installing tcpdump on wireguard Server
