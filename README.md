@@ -22,11 +22,11 @@ Packages to install:
 
 Description about packages:
 
-apt-transport-https - allows the use of repositories accessed via the HTTP Secure protocol (HTTPS),
-ca-certificates - Certificate Authentication
-curl  - Client URL, develop to transfer data to and from server
-gnupg-agent - Daemon to manage private keys independently from any protocol
-software-properties-common  - Provide useful scripts for adding and removing PPAs and DBUS backends, without this we have to manually add or remove PPAs and as well as subsidiary
+* apt-transport-https - allows the use of repositories accessed via the HTTP Secure protocol (HTTPS),
+* ca-certificates - Certificate Authentication
+* curl  - Client URL, develop to transfer data to and from server
+* gnupg-agent - Daemon to manage private keys independently from any protocol
+* software-properties-common  - Provide useful scripts for adding and removing PPAs and DBUS backends, without this we have to manually add or remove PPAs and as well as subsidiary
 
 ### [Installing docker]
 
@@ -34,10 +34,10 @@ software-properties-common  - Provide useful scripts for adding and removing PPA
 
 Description about flags:
 
--f = fail [silent output + no server error]	\n
-\n-s = no progress bar
-\n-S = error shown if something goes wrong
-\n-L = change in location
+* -f = fail [silent output + no server error]
+* -s = no progress bar
+* -S = error shown if something goes wrong
+* -L = change in location
 
 ### Adding repo
 `sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`
