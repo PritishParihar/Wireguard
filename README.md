@@ -4,7 +4,6 @@
 
 [docker-compose.yaml file](https://hub.docker.com/r/linuxserver/wireguard)
 
-### Module refer link
 [Read more about docker modules](https://docs.docker.com/engine/reference/run/)
 
 
