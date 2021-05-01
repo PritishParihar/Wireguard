@@ -12,55 +12,63 @@
 [Installing pre-requisite]
 
 ```ruby
-NOTE: Allow port: 51820
+Precaution
+Allow port = 51820
 ```
 
-sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+Packages to install:
+`sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+`
+Description about packages:
+
+apt-transport-https - allows the use of repositories accessed via the HTTP Secure protocol (HTTPS),
+ca-certificates - Certificate Authentication
+curl  - Client URL, develop to transfer data to and from server
+gnupg-agent - Daemon to manage private keys independently from any protocol
+software-properties-common  - Provide useful scripts for adding and removing PPAs and DBUS backends, without this we have to manually add or remove PPAs and as well as subsidiary
+
+### [Installing docker]
+
+`curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`
+
+Description about flags:
+
+-f = fail [silent output + no server error]	#-s = no progress bar
+-S = error shown if something goes wrong
+-L = change in location
+
+### Adding repo
+`sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`
+
+### Update and installing docker files
+`sudo apt-get update && sudo apt-get install docker-ce docker-ce-cli containerd.io`
+
+### Downloading docker-compose file
+`sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose`
+
+### Setting Executable permission
+`sudo chmod +x /usr/local/bin/docker-compose`
 
 
-apt-transport-https	-  allows the use of repositories accessed via the HTTP Secure protocol (HTTPS),
-ca-certificates		- Certificate Authentication
-curl			- Client URL, develop to transfer data to and from server
-gnupg-agent		- Daemon to manage private keys independently from any protocol
-software-properties-common 	- Provide useful scripts for adding and removing PPAs and DBUS backends, without this we have to manually add or remove PPAs and as well as subsidiary
+### remove sudo from every docker
+`sudo usermod -aG docker $USER`
 
-[Installing docker]
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-#-f = fail [silent output + no server error]	#-s = no progress bar
-#-S = error shown if something goes wrong
-#-L = change in location
-# Adding repo
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+### to reload all the membership of the group
+`newgrp docker`
 
-# Update and installing docker files
-sudo apt-get update && sudo apt-get install docker-ce docker-ce-cli containerd.io
+### to check docker is successfully installed
+`docker run hello-world`
 
-# Downloading docker-compose file
-sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+### to see docker-compose version
+`docker-compose version`
 
-# Setting Executable permission
-sudo chmod +x /usr/local/bin/docker-compose
+Installation of docker and docker-compose complete!
 
 
-# remove sudo from every docker
-sudo usermod -aG docker $USER
+## Installing wireguard container
 
-# to reload all the membership of the group
-newgrp docker
-
-# to check docker is successfully installed
-docker run hello-world
-
-# to see docker-compose version
-docker-compose version
-
-<Installation of docker and docker-compose complete!>
-
-
-#Installing wireguard container
-
-# Just to keep things clean, let’s create a separate directory
-sudo mkdir /opt/wireguard-server
+### Just to keep things clean, let’s create a separate directory
+`sudo mkdir /opt/wireguard-server`
 
 #Getting ownership of folder
 sudo chown $USER:$USER /opt/wireguard-server/
