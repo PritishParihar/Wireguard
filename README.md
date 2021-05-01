@@ -87,6 +87,7 @@ Installation of docker and docker-compose complete!
 #### xv. copy paste below text into yaml file
 
 ```
+---
 version: "2.1"
 services:
   wireguard:
