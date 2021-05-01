@@ -1,2 +1,1 @@
-# Wireguard
- Automating wireguard using docker
+# Automating wireguard using docker compose
