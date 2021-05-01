@@ -21,11 +21,11 @@ Packages to install:
 
 - Description about packages:
 
-* apt-transport-https - allows the use of repositories accessed via the HTTP Secure protocol (HTTPS),
-* ca-certificates - Certificate Authentication
-* curl  - Client URL, develop to transfer data to and from server
-* gnupg-agent - Daemon to manage private keys independently from any protocol
-* software-properties-common  - Provide useful scripts for adding and removing PPAs and DBUS backends, without this we have to manually add or remove PPAs and as well as subsidiary
+  * apt-transport-https - allows the use of repositories accessed via the HTTP Secure protocol (HTTPS),
+  * ca-certificates - Certificate Authentication
+  * curl  - Client URL, develop to transfer data to and from server
+  * gnupg-agent - Daemon to manage private keys independently from any protocol
+  * software-properties-common  - Provide useful scripts for adding and removing PPAs and DBUS backends, without this we have to manually add or remove PPAs and as well as subsidiary
 
 ### [Installing docker]
 
